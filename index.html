@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teste Template Strings</title>
+</head>
+<body>
+
+    <div id="element"></div>
+    
+    <script>
+
+        // Desconstructing
+        
+        let a = 10;
+        let b = 100;
+
+        console.log(a, b);
+
+        [a, b] = [b, a];
+
+        console.log(a, b);
+
+        let data = {
+            name: 'John',
+            surname: 'Doe'
+        }
+
+        const { name, surname } = data;
+        console.log(name, surname);
+
+        // ...Spread operator
+
+        let front = ['react', 'angular'];
+        let back = ['php', 'nodejs'];
+
+        let fullStack = [...front, 'python', ...back];
+        console.log(fullStack);
+
+        console.log(..."will");
+        console.log([..."will"]);
+        
+        // ...Rest operator
+
+        function multiply(mult, ...args) {
+            return args.map(arg => arg * mult);
+        }
+
+        console.log(multiply(3, 1, 2, 3));
+
+        // Promise === obj que tem como ação algo que não está realizado mas PODE ser no futuro
+
+        //pending
+        //resolved
+        //rejected
+
+        let defer = new Promise((resolve, reject) => {
+            if (true)
+                resolve('Hello!');
+            else 
+                reject('Sorry. Bye!');
+        });
+
+        defer
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+
+        // fetch retorna uma promise de dados retirados da url (JSON)
+        var posts = fetch('https://willianjusten.com.br/search.json');
+
+        posts
+            .then(data => data.json())
+            .then(data => data.map(post => post.title))
+            .then(data => console.log(data));
+
+        // for .. of
+        const txt = ['World', 'Hey'];
+
+        for( letter of txt) 
+            console.log(letter);
+
+    </script>
+</body>
+</html>
