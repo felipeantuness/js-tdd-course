@@ -1,4 +1,6 @@
 const a = 3;
 const b = 2;
 
-console.log(a, b);
+const c = 3;
+
+console.log(a, b, c);
